@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+/* Global base adjustments */
+html, body, #root {
+	height: 100%;
+}
+body {
+	font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	background-color: #000;
+	color: #f1f5f9; /* slate-100 */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* Glassmorphism utility */
+.glass {
+	background: radial-gradient(circle at 10% 20%, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 60%) padding-box;
+	backdrop-filter: blur(18px) saturate(140%);
+	-webkit-backdrop-filter: blur(18px) saturate(140%);
+	border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* Simple fade / entrance animations */
+@keyframes fade-in {
+	from { opacity: 0; transform: translateY(4px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fade-in 0.5s ease both; }
+
+@keyframes fade-up {
+	from { opacity: 0; transform: translateY(16px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fade-up 0.45s cubic-bezier(.16,.68,.43,.99) both; }
+
+/* Custom scrollbar (webkit) */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #0f172a; }
+::-webkit-scrollbar-thumb { background: linear-gradient(to bottom,#6366f1,#8b5cf6,#06b6d4); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(to bottom,#818cf8,#a78bfa,#22d3ee); }
